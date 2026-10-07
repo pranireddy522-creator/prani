@@ -1,0 +1,40 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Medical Diagnosis Patient Data
+
+data = {
+    "S.No": [1, 2, 3, 4, 5],
+    "Name": ["Ravi", "Anitha", "Suresh", "Priya", "Kiran"],
+    "Age": [35, 28, 45, 32, 40],
+    "Gender": ["Male", "Female", "Male", "Female", "Male"],
+    "Village": ["Nalgonda", "Warangal", "Hyderabad", "Karimnagar", "Khammam"],
+    "JoinDate": ["01-10-2026", "02-10-2026", "03-10-2026", "04-10-2026", "05-10-2026"],
+    "DischargeDate": ["05-10-2026", "06-10-2026", "08-10-2026", "07-10-2026", "10-10-2026"]
+}
+
+# Create DataFrame
+df = pd.DataFrame(data)
+
+# Display patient records
+print("========== MEDICAL DIAGNOSIS PATIENT RECORD ==========")
+print(df)
+
+# Display basic information
+print("\n========== PATIENT INFORMATION ==========")
+print("Total Patients:", len(df))
+print("Average Age:", df["Age"].mean())
+
+# Gender count
+print("\n========== GENDER COUNT ==========")
+print(df["Gender"].value_counts())
+
+# Plot patient age
+plt.figure(figsize=(8, 5))
+plt.bar(df["Name"], df["Age"])
+
+plt.xlabel("Patient Name")
+plt.ylabel("Age")
+plt.title("Medical Diagnosis - Patient Age")
+
+plt.show()
